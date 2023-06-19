@@ -9,24 +9,27 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
+import java.io.IOException;
 import java.time.Duration;
 
-public class loginAccount {
-    private WebDriver driver;
+public class loginNew {
+     private WebDriver driver;
 
-    @Test
-    public void loginsuccess() {
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
-
+    @BeforeTest
+        public void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:\\Driverapp\\chromedriver_win32_14\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver(chromeOptions);
+        ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
+        driver = new ChromeDriver(chromeOptions);
         //navigate to URL Testing
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
+    }
 
+    @Test(priority = 1)
+        public void AccountLoginSuccess(){
         //Enter Username
         WebElement username = driver.findElement(By.id("user-name"));
         username.sendKeys("standard_user");
@@ -39,31 +42,22 @@ public class loginAccount {
         WebElement loginbutton = driver.findElement(By.id("login-button"));
         loginbutton.click();
 
-        WebElement homepage_product = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/span"));
-        Assert.assertTrue(homepage_product.isDisplayed());
+        //verify login page
+        WebElement page_Login = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/span"));
+        Assert.assertTrue(page_Login.isDisplayed());
 
-        //try {
-            //Thread.sleep(5000); // 5 seconds
-        //} catch (InterruptedException e) {
-           // e.printStackTrace();
-        //}
-        driver.quit();
+        //Logout the webapp
+        WebElement hamburger_menu = driver.findElement(By.xpath("//html/body/div/div/div/div[1]/div[1]/div[1]/div/div[1]/div/button"));
+            hamburger_menu.click();
+        WebDriverWait wait_logout = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebElement logout_menu = wait_logout.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[1]/div/div[2]/div[1]/nav/a[3]")));
+            logout_menu.click();
+
 
     }
 
-    @Test
-    public void loginfailed() {
-        //Scenario 2 = User login with invalid credential
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
-
-        System.setProperty("webdriver.chrome.driver", "C:\\Driverapp\\chromedriver_win32_14\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver(chromeOptions);
-
-        //navigate to URL Testing
-        driver.get("https://www.saucedemo.com/");
-        driver.manage().window().maximize();
-
+    @Test(priority = 2)
+        public void AccountLoginFailed(){
         //Enter Username
         WebElement username = driver.findElement(By.id("user-name"));
         username.sendKeys("standard_user");
@@ -84,16 +78,13 @@ public class loginAccount {
         } catch (TimeoutException e) {
             System.out.println("Login Failed");
         }
+    }
 
-        //try {
-           // Thread.sleep(5000); // 5 seconds
-       // } catch (InterruptedException e) {
-          //  e.printStackTrace();
-       // }
+    @AfterTest
+    public void tearDown(){
 
         driver.quit();
     }
 
 
 }
-

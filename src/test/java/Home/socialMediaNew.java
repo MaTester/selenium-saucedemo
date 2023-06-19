@@ -1,8 +1,5 @@
 package Home;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,14 +8,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class socialMedia {
+public class socialMediaNew {
     private WebDriver driver;
 
-    @Before
-    public void setUp(){
+    @BeforeTest
+        public void setUp(){
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
         driver = new ChromeDriver(chromeOptions);
@@ -38,19 +39,25 @@ public class socialMedia {
         //Click Login Button
         WebElement loginbutton = driver.findElement(By.id("login-button"));
         loginbutton.click();
-
     }
 
-    @Test
-    public void webTwitter(){
+    @Test(priority = 1)
+        public void viewSocialMedia(){
+            //verify login page
+            WebElement page_Login = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/span"));
+                Assert.assertTrue(page_Login.isDisplayed());
 
+            //View Media Social
+            // Create an instance of the JavascriptExecutor interface
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            // Scroll to a specific position on the web page
+            js.executeScript("window.scrollTo(0, 961);");
+            WebElement view_mediaSocial = driver.findElement(By.xpath("/html/body/div/div/footer"));
+                Assert.assertTrue(view_mediaSocial.isDisplayed());
+        }
 
-        //Scroll down the page
-        // Create an instance of the JavascriptExecutor interface
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        // Scroll to a specific position on the web page
-        js.executeScript("window.scrollTo(0, 961);");
+    @Test(priority = 2)
+        public void web_twitter(){
 
         // Get the current window handle
         String currentWindowHandle = driver.getWindowHandle();
@@ -64,26 +71,17 @@ public class socialMedia {
         waitTab.until(ExpectedConditions.numberOfWindowsToBe(2));
 
         try {
-            Thread.sleep(5000); // 5 seconds
+            Thread.sleep(3000); // 3 seconds
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-
         // Switch back to the original window
         driver.switchTo().window(currentWindowHandle);
-
     }
 
-    @Test
-    public void webFacebook(){
-        //Scroll down the page
-        // Create an instance of the JavascriptExecutor interface
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        // Scroll to a specific position on the web page
-        js.executeScript("window.scrollTo(0, 961);");
-
+    @Test(priority = 3)
+        public void web_facebook(){
         // Get the current window handle
         String currentWindowHandle = driver.getWindowHandle();
 
@@ -93,55 +91,44 @@ public class socialMedia {
 
         // Wait for the new window to open
         WebDriverWait waitTab = new WebDriverWait(driver, Duration.ofSeconds(5));
-        waitTab.until(ExpectedConditions.numberOfWindowsToBe(2));
+        waitTab.until(ExpectedConditions.numberOfWindowsToBe(3));
 
         try {
-            Thread.sleep(5000); // 5 seconds
+            Thread.sleep(3000); // 3 seconds
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-
         // Switch back to the original window
         driver.switchTo().window(currentWindowHandle);
-
     }
 
-    @Test
-    public  void weblinkedln(){
-        //Scroll down the page
-        // Create an instance of the JavascriptExecutor interface
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        // Scroll to a specific position on the web page
-        js.executeScript("window.scrollTo(0, 961);");
-
+    @Test(priority = 4)
+        public void web_linkedln(){
         // Get the current window handle
         String currentWindowHandle = driver.getWindowHandle();
 
-        // Click a link twitter that opens a new window
+        // Click a link Linkedln that opens a new window
         WebElement linkedlnIcon = driver.findElement(By.xpath("/html/body/div/div/footer/ul/li[3]/a"));
-        linkedlnIcon.click();
+            linkedlnIcon.click();
 
         // Wait for the new window to open
         WebDriverWait waitTab = new WebDriverWait(driver, Duration.ofSeconds(5));
-        waitTab.until(ExpectedConditions.numberOfWindowsToBe(2));
+        waitTab.until(ExpectedConditions.numberOfWindowsToBe(4));
 
         try {
-            Thread.sleep(5000); // 5 seconds
+            Thread.sleep(3000); // 3 seconds
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-
         // Switch back to the original window
         driver.switchTo().window(currentWindowHandle);
-
     }
 
-    @After
-    public void tearDown() throws Exception {
+    @AfterTest
+        public void tearDown(){
+
         driver.quit();
     }
-
 }

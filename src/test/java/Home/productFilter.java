@@ -240,7 +240,7 @@ public class productFilter {
         WebElement loginbutton = driver.findElement(By.id("login-button"));
         loginbutton.click();
 
-        //Select filter Low to High
+        //Select filter High to Low
         WebElement dropdownfilterhilo = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/div/span/select"));
         Select dropdownhilo = new Select(dropdownfilterhilo);
         dropdownhilo.selectByValue("hilo");
