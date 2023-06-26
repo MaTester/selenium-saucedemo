@@ -30,15 +30,15 @@ public class socialMediaNew {
 
         //Enter Username
         WebElement username = driver.findElement(By.id("user-name"));
-        username.sendKeys("standard_user");
+            username.sendKeys("standard_user");
 
         //Enter Password
         WebElement password = driver.findElement(By.id("password"));
-        password.sendKeys("secret_sauce");
+            password.sendKeys("secret_sauce");
 
         //Click Login Button
         WebElement loginbutton = driver.findElement(By.id("login-button"));
-        loginbutton.click();
+            loginbutton.click();
     }
 
     @Test(priority = 1)
@@ -64,11 +64,11 @@ public class socialMediaNew {
 
         // Click a link twitter that opens a new window
         WebElement twitterIcon = driver.findElement(By.xpath("/html/body/div/div/footer/ul/li[1]/a"));
-        twitterIcon.click();
+            twitterIcon.click();
 
         // Wait for the new window to open
         WebDriverWait waitTab = new WebDriverWait(driver, Duration.ofSeconds(5));
-        waitTab.until(ExpectedConditions.numberOfWindowsToBe(2));
+            waitTab.until(ExpectedConditions.numberOfWindowsToBe(2));
 
         try {
             Thread.sleep(3000); // 3 seconds
@@ -87,11 +87,11 @@ public class socialMediaNew {
 
         // Click a link Facebook that opens a new window
         WebElement facebookIcon = driver.findElement(By.xpath("/html/body/div/div/footer/ul/li[2]/a"));
-        facebookIcon.click();
+            facebookIcon.click();
 
         // Wait for the new window to open
         WebDriverWait waitTab = new WebDriverWait(driver, Duration.ofSeconds(5));
-        waitTab.until(ExpectedConditions.numberOfWindowsToBe(3));
+            waitTab.until(ExpectedConditions.numberOfWindowsToBe(3));
 
         try {
             Thread.sleep(3000); // 3 seconds
@@ -114,7 +114,7 @@ public class socialMediaNew {
 
         // Wait for the new window to open
         WebDriverWait waitTab = new WebDriverWait(driver, Duration.ofSeconds(5));
-        waitTab.until(ExpectedConditions.numberOfWindowsToBe(4));
+            waitTab.until(ExpectedConditions.numberOfWindowsToBe(4));
 
         try {
             Thread.sleep(3000); // 3 seconds

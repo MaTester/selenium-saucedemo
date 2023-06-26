@@ -31,27 +31,27 @@ public class productFilterNew {
         public void home_navigation(){
         //Enter Username
         WebElement username = driver.findElement(By.id("user-name"));
-        username.sendKeys("standard_user");
+            username.sendKeys("standard_user");
 
         //Enter Password
         WebElement password = driver.findElement(By.id("password"));
-        password.sendKeys("secret_sauce");
+            password.sendKeys("secret_sauce");
 
         //Click Login Button
         WebElement loginbutton = driver.findElement(By.id("login-button"));
-        loginbutton.click();
+            loginbutton.click();
 
         //verify login page
         WebElement page_Login = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/span"));
-        Assert.assertTrue(page_Login.isDisplayed());
+            Assert.assertTrue(page_Login.isDisplayed());
     }
 
     @Test(priority = 2)
         public void filter_za(){
         //Select filter z to a
         WebElement dropdownfilter = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/div/span/select"));
-        Select dropdownZA = new Select(dropdownfilter);
-        dropdownZA.selectByValue("za");
+            Select dropdownZA = new Select(dropdownfilter);
+                dropdownZA.selectByValue("za");
 
         try {
             Thread.sleep(2000); // 2 seconds
@@ -70,8 +70,8 @@ public class productFilterNew {
         public void filter_az(){
         //Select filter a to z
         WebElement dropdownfilterAZ = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/div/span/select"));
-        Select dropdownAZ = new Select(dropdownfilterAZ);
-        dropdownAZ.selectByValue("az");
+            Select dropdownAZ = new Select(dropdownfilterAZ);
+                dropdownAZ.selectByValue("az");
 
         try {
             Thread.sleep(2000); // 2 seconds
@@ -91,8 +91,8 @@ public class productFilterNew {
         public void filter_lohi(){
         //Select filter Low to High
         WebElement dropdownfilterlohi = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/div/span/select"));
-        Select dropdownlohi = new Select(dropdownfilterlohi);
-        dropdownlohi.selectByValue("lohi");
+            Select dropdownlohi = new Select(dropdownfilterlohi);
+                dropdownlohi.selectByValue("lohi");
 
         try {
             Thread.sleep(2000); // 2 seconds
@@ -111,8 +111,8 @@ public class productFilterNew {
         public void filter_hilo(){
         //Select filter High to Low
         WebElement dropdownfilterhilo = driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[2]/div/span/select"));
-        Select dropdownhilo = new Select(dropdownfilterhilo);
-        dropdownhilo.selectByValue("hilo");
+            Select dropdownhilo = new Select(dropdownfilterhilo);
+                dropdownhilo.selectByValue("hilo");
 
         try {
             Thread.sleep(2000); // 2 seconds
