@@ -21,7 +21,7 @@ public class loginAccount {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Driverapp\\chromedriver_win32_14\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Driverapp\\chromedriver-19\\chromedriver.exe");
         WebDriver driver = new ChromeDriver(chromeOptions);
         //navigate to URL Testing
         driver.get("https://www.saucedemo.com/");

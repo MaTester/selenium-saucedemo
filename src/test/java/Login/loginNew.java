@@ -19,7 +19,7 @@ public class loginNew {
 
     @BeforeTest
         public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Driverapp\\chromedriver_win32_14\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Driverapp\\chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
         driver = new ChromeDriver(chromeOptions);
@@ -29,7 +29,7 @@ public class loginNew {
     }
 
     @Test(priority = 1)
-        public void AccountLoginSuccess(){
+        public void AccountLoginSuccess() throws InterruptedException {
         //Enter Username
         WebElement username = driver.findElement(By.id("user-name"));
         username.sendKeys("standard_user");
@@ -52,6 +52,8 @@ public class loginNew {
         WebDriverWait wait_logout = new WebDriverWait(driver, Duration.ofSeconds(5));
         WebElement logout_menu = wait_logout.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[1]/div/div[2]/div[1]/nav/a[3]")));
             logout_menu.click();
+
+        Thread.sleep(5000);
 
 
     }
