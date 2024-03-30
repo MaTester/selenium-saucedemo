@@ -9,9 +9,9 @@ import org.testng.annotations.BeforeClass;
 
 public class openBrowser {
 
-    public String baseURL="https://www.saucedemo.com/";
-    public String username="standard_user";
-    public String password="secret_sauce";
+    public String baseURL = "https://www.saucedemo.com/";
+    public String username = "standard_user";
+    public String password = "secret_sauce";
     public static WebDriver driver;
 
     @BeforeClass
@@ -20,12 +20,14 @@ public class openBrowser {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
         driver = new ChromeDriver(chromeOptions);
-        
+
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() {
 
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

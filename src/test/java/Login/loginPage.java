@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class loginPage extends openBrowser {
 
-    @Test
+    @Test (priority = 1)
     public void loginTest(){
         driver.get(baseURL);
 
