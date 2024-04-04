@@ -53,7 +53,7 @@ public class dashboardView extends loginPage {
         String actualTitle_FleeceJacket = sauceLabFleeceJacket.getText();
         String expectedTitle_FleeceJacket = "Sauce Labs Fleece Jacket";
         Assert.assertEquals(actualTitle_FleeceJacket, expectedTitle_FleeceJacket, "Title does match");
-        System.out.println("Sauce Labs Fleece Jacket One");
+        System.out.println("Sauce Labs Fleece Jacket");
 
     }
 }
