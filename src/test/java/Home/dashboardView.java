@@ -46,4 +46,14 @@ public class dashboardView extends loginPage {
 
     }
 
+    @Test(priority = 5)
+    public void productView4() {
+        WebDriverWait wait_FleeceJacket = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement sauceLabFleeceJacket = wait_FleeceJacket.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[4]/div[2]/div[1]/a/div")));
+        String actualTitle_FleeceJacket = sauceLabFleeceJacket.getText();
+        String expectedTitle_FleeceJacket = "Sauce Labs Fleece Jacket";
+        Assert.assertEquals(actualTitle_FleeceJacket, expectedTitle_FleeceJacket, "Title does match");
+        System.out.println("Sauce Labs Fleece Jacket");
+
+    }
 }
