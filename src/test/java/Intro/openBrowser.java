@@ -16,10 +16,11 @@ public class openBrowser {
 
     @BeforeClass
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Driverapp\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\lapto\\git\\selenium-saucedemo\\drivers\\chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--remote-allow-origins=*", "ignore-certificate-errors");
         driver = new ChromeDriver(chromeOptions);
+        driver.manage().window().maximize();
 
     }
 

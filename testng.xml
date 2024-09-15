@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/lapto/git/selenium-saucedemo/src/test">
+        <classes>
+            <!-- Place the Login class first -->
+            <class name="Login.loginPage">
+                <methods>
+                    <include name="loginTest"/>
+                </methods>
+            </class>
+            <class name="Home.dashboardView">
+                <methods>
+                    <include name="productView1"/>
+                    <include name="productView2"/>
+                    <include name="productView3"/>
+                    <include name="productView4"/>
+                    <include name="productView5"/>
+                </methods>
+            </class>
+            <class name="Home.filterProduct">
+                <methods>
+                    <include name="filterNameAZ"/>
+                    <include name="filterNameZA"/>
+                    <include name="filterPriceLoHi"/>
+                    <include name="filterPriceHiLo"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
