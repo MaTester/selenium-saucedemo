@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/lapto/git/selenium-saucedemo/src/test">
+    <test verbose="2" preserve-order="true" name="saucedemoTest">
         <classes>
             <!-- Place the Login class first -->
             <class name="Login.loginPage">
@@ -24,6 +24,15 @@
                     <include name="filterNameZA"/>
                     <include name="filterPriceLoHi"/>
                     <include name="filterPriceHiLo"/>
+                </methods>
+            </class>
+            <class name="Cart.purchaseProduct">
+                <methods>
+                    <include name="purchaseSuccess"/>
+                    <include name="removeCart"/>
+                    <include name="purchaseWithoutFirstName"/>
+                    <include name="purchaseWithoutLastName"/>
+                    <include name="purchaseWithoutZipcode"/>
                 </methods>
             </class>
         </classes>

@@ -12,6 +12,9 @@ public class openBrowser {
     public String baseURL = "https://www.saucedemo.com/";
     public String username = "standard_user";
     public String password = "secret_sauce";
+    public String firstName = "Ailin";
+    public String lastName = "Theodor";
+    public String zipCode = "17610";
     public static WebDriver driver;
 
     @BeforeClass
